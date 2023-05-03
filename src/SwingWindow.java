@@ -22,18 +22,29 @@ public class SwingWindow extends JFrame{
         easyButton.setBackground(Color.cyan);
         mediumButton.setBackground(Color.pink);
 
-        easyButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EasyMode ez = new EasyMode();
-                ez.show();
-                dispose();
-                    repaint();
-
+        if(easyButton.isEnabled()) {
+            easyButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EasyMode ez = new EasyMode();
+                    ez.show();
+                    dispose();
+                    ez.setSize(450, 300);
                 }
 
-        });
+            });
+        } if(hardButton.isEnabled()) {
+            hardButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent f) {
+                    HardMode hM = new HardMode();
+                    hM.show();
+                    dispose();
+                    hM.setSize(450, 300);
 
+                }
+            });
+        }
     }
 
     }
