@@ -47,5 +47,6 @@ public class SwingWindow extends JFrame{
         }
     }
 
-    }
+
+}
 
