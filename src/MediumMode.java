@@ -2,10 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.jar.JarEntry;
 
-public class HardMode extends JFrame {
-    private JPanel hardMode;
-    private JButton backButton;
+public class MediumMode extends JFrame {
+    private JButton mainMenu;
+    private JPanel medium;
+
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
@@ -13,20 +15,21 @@ public class HardMode extends JFrame {
     final int maxScreenRow = 12;
     final int screenWidth = tileSize*maxScreenCol;
     final int screenHeight = tileSize* maxScreenRow;
-    public HardMode() {
-        hardMode.setLayout(null);
-        backButton.setBounds(0, 0, 50, 40);
-        backButton.setText("Menu");    //setting the size and the text for quit button
-        setContentPane(hardMode);
-        setTitle("Hard mode");
-        this.setPreferredSize(new Dimension(screenWidth,screenHeight));  //set up the size of the hard panel
+
+    public MediumMode(){
+        medium.setLayout(null);
+        mainMenu.setBounds(0, 0, 50, 40);
+        mainMenu.setText("Menu");    //setting the size and the text for quit button
+        setContentPane(medium);
+        setTitle("Medium mode");
+        this.setPreferredSize(new Dimension(screenWidth,screenHeight));  //set up the size of the medium panel
         this.pack();
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);   //enable the hard panel
+        setVisible(true);   //enable the medium panel
 
-        if (backButton.isEnabled()) {   // go back to main panel
-            backButton.addActionListener(new ActionListener() {
+        if (mainMenu.isEnabled()) {   // go back to main panel
+            mainMenu.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     SwingWindow s = new SwingWindow();
@@ -36,6 +39,6 @@ public class HardMode extends JFrame {
 
                 }
             });
-        }
     }
+   }
 }
